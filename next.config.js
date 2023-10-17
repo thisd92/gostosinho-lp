@@ -4,11 +4,11 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'scontent.fcfc1-1.fna.fbcdn.net'
+                hostname: 'files.menudino.com'
             },
             {
-                protocol: 'https',
-                hostname: 'files.menudino.com'
+                protocol: 'http',
+                hostname: 'localhost'
             }
         ]
     }
