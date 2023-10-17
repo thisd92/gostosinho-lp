@@ -1,5 +1,5 @@
 'use client'
-import { Logo, Menu } from "../../img"
+import { Logo, Menu } from "../../../img"
 import Image from "next/image"
 import { HeaderWrapper, List, WrapperList, Link, ImageWrapper, Navbar } from "./style"
 import React from "react"
@@ -14,6 +14,8 @@ export default function Header() {
                 <WrapperList>
                     <List><Link href='#'>Home</Link></List>
                     <List><Link href={Menu}>Cardápio</Link></List>
+                    <List><Link href={Menu}>Agenda</Link></List>
+                    <List><Link href={Menu}>Agenda</Link></List>
                 </WrapperList>
             </Navbar>
         </HeaderWrapper>
