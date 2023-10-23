@@ -2,8 +2,9 @@ import { useState } from "react"
 import { Input, Label, TextArea } from "."
 import { ButtonSubmit } from "../buttons/Buttons"
 import { Contact } from "./type"
+import { FormControl } from "./style"
 
-const Form = () => {
+const FormContact = () => {
 
     const newContact = {
         name: "",
@@ -25,18 +26,24 @@ const Form = () => {
 
     return (
         <form>
-            <Label htmlFor="nome">Nome:</Label>
-            <Input type="text" id="nome" name="nome" onChange={handleChange} required />
+            <FormControl>
+                <Label htmlFor="nome">Nome:</Label>
+                <Input type="text" id="nome" name="nome" onChange={handleChange} required />
+            </FormControl>
 
-            <Label htmlFor="email">Email:</Label>
-            <Input type="email" id="email" name="email" onChange={handleChange} required />
+            <FormControl>
+                <Label htmlFor="email">Email:</Label>
+                <Input type="email" id="email" name="email" onChange={handleChange} required />
+            </FormControl>
 
-            <Label htmlFor="mensagem">Mensagem:</Label>
-            <TextArea id="mensagem" name="mensagem" rows={10} required onChange={handleTextChange} />
+            <FormControl>
+                <Label htmlFor="mensagem">Mensagem:</Label>
+                <TextArea id="mensagem" name="mensagem" rows={10} required onChange={handleTextChange} />
+            </FormControl>
 
             <ButtonSubmit type="submit">Enviar</ButtonSubmit>
         </form>
     )
 }
 
-export { Form }
+export { FormContact }
