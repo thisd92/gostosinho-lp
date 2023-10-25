@@ -8,7 +8,15 @@ const FormControl = styled.div`
 const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 65%;
+`
+
+const InputText = styled.input`
+
+`
+
+const LabelForm = styled.label`
+    
 `
 
 export { FormControl, FormContainer }

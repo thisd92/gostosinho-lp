@@ -2,10 +2,13 @@ import styled from "styled-components"
 
 const NewPostContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    width: 100%
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around;
+`
+
+const Wrapper = styled.div`
+    width: 49%;
 `
 
 
-export { NewPostContainer }
+export { NewPostContainer, Wrapper }
