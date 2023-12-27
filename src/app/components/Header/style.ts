@@ -6,7 +6,7 @@ const HeaderWrapper = styled.header`
     width: 100%;
     height: 100px;
     background-color: #000000;
-    color: #ffffff
+    color: #ffffff;
 `
 
 const WrapperList = styled.ul`
@@ -38,7 +38,7 @@ const Link = styled.a`
 const ImageWrapper = styled.div`
     display: flex;
     height: 100%;
-    margin-left: 40px
+    margin-left: 40px;
 `
 
 const Navbar = styled.nav`
