@@ -3,7 +3,7 @@ import Link from "next/link"
 import { PostProps } from "./type"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import Image from "next/image"
+import Post from "../components/post/post"
 
 const Blog = () => {
 
@@ -28,18 +28,7 @@ const Blog = () => {
         <>
             <div>Blog</div>
             <Link href='/blog/new-post'>Novo Post</Link>
-            <div>
-                <ul>
-                    {posts.map(p => (
-                        <li key={p._id}>
-                            {p.images.map((i) => (
-                                <Image key={i} width={300} height={300} alt="" src={`http://localhost:8090/${i}`} />
-                            ))}
-                            <Link href={`/blog/posts/${p._id}`}>{p.title}</Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            {posts.length > 0 && <Post posts={posts} />}
         </>
 
     )
