@@ -46,13 +46,13 @@ const FormPost = () => {
         formData.append('content', post.content)
         if (post.img instanceof File) {
             formData.append('file', post.img, post.img.name);
-            console.log(formData)
         }
         await axios.post('http://localhost:8090/api/posts', formData, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
         })
+        alert('Post Criado')
         resetValues()
     }
 
@@ -60,12 +60,12 @@ const FormPost = () => {
         <FormContainer onSubmit={handleSubmit} encType="multipart/form-data">
             <FormControl>
                 <Label htmlFor="title">Título</Label>
-                <Input type="text" id="title" name="title" onChange={handleChange} required></Input>
+                <Input type="text" id="title" name="title" onChange={handleChange} value={post.title} required></Input>
             </FormControl>
 
             <FormControl>
                 <Label htmlFor="content">Conteúdo</Label>
-                <TextArea rows={20} id="content" name="content" onChange={handleTextChange} required></TextArea>
+                <TextArea rows={20} id="content" name="content" onChange={handleTextChange} value={post.content} required></TextArea>
             </FormControl>
 
             <FormControl>
