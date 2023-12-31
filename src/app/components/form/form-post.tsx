@@ -1,11 +1,16 @@
 import axios from "axios"
-import { useState, useRef } from "react"
+import React, { useRef } from "react"
 import { Input, Label, TextArea } from "."
 import { ButtonSubmit } from "../buttons/Buttons"
 import { PostModel } from "@/app/blog/type"
 import { FormContainer, FormControl } from "./style"
 
-const FormPost = () => {
+interface FromPostProps {
+    setPost: React.Dispatch<React.SetStateAction<PostModel>>,
+    post: PostModel
+}
+
+const FormPost: React.FC<FromPostProps> = ({ setPost, post }) => {
 
     const newPost: PostModel = {
         title: '',
@@ -13,7 +18,6 @@ const FormPost = () => {
         img: null
     }
 
-    const [post, setPost] = useState<PostModel>(newPost)
     const formRef = useRef<HTMLFormElement>(null)
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
