@@ -1,7 +1,8 @@
 'use client'
-import { PostModel } from "../../type"
+import { PostModel, PostProps } from "../../type"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import Image from "next/image"
 
 interface BlogPostProps {
     params: {
@@ -10,12 +11,13 @@ interface BlogPostProps {
 }
 function BlogPost({ params }: BlogPostProps) {
 
-    const initialPost: PostModel = {
+    const initialPost: PostProps = {
         title: "",
         content: "",
+        images: [""]
     }
 
-    const [postData, setPostData] = useState<PostModel>(initialPost);
+    const [postData, setPostData] = useState<PostProps>(initialPost);
     const [loading, setLoading] = useState(true);
 
     async function fetchPostData() {
@@ -29,16 +31,22 @@ function BlogPost({ params }: BlogPostProps) {
 
 
     useEffect(() => {
-        if (params.id) fetchPostData()
-    }, [params.id])
+       fetchPostData()
+    }, [])
 
 
     return (
         <>
-            <div>Blog Posts</div>
+            <div>Blog Post</div>
             <div>
-                <p>Title: {postData.title}</p>
-                <p>Conteúdo: {postData.content}</p>
+                {postData.images.map((i) => (
+                    <Image key={i} width={300} height={300} alt="" src={`http://localhost:8090/${i}`} />
+                ))}
+                
+            </div>
+            <div>
+                <h3>{postData.title}</h3>
+                <p>{postData.content}</p>
             </div>
         </>
     )
