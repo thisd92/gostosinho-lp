@@ -11,6 +11,9 @@ const nextConfig = {
                 hostname: 'localhost'
             }
         ]
+    },
+    compiler: {
+        styledComponents: true,
     }
 }
 
