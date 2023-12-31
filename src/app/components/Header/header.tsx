@@ -13,9 +13,10 @@ export default function Header() {
             <Navbar>
                 <WrapperList>
                     <List><Link href='/'>Home</Link></List>
-                    <List><Link href={Menu}>Cardápio</Link></List>
                     <List><Link href={'/agenda'}>Agenda</Link></List>
                     <List><Link href={'/blog'}>Blog</Link></List>
+                    <List><Link href={Menu}>Cardápio</Link></List>
+                    <List><Link href={'/inspiracoes'}>Nossas Inspirações</Link></List>
                 </WrapperList>
             </Navbar>
         </HeaderWrapper>
