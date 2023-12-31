@@ -29,7 +29,7 @@ interface InputProps {
 interface Contact {
     name: string,
     email: string,
-    mensagem: string
+    message: string
 }
 
 export type { Contact, InputProps, LabelProps, TextAreaProps }

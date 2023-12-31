@@ -1,16 +1,19 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Input, Label, TextArea } from "."
 import { ButtonSubmit } from "../buttons/Buttons"
 import { Contact } from "./type"
-import { FormControl } from "./style"
+import { FormContainer, FormControl } from "./style"
+import axios from "axios"
 
 const FormContact = () => {
 
     const newContact = {
         name: "",
         email: "",
-        mensagem: ""
+        message: ""
     }
+
+    const formRef = useRef<HTMLFormElement>(null)
 
     const [contact, setContact] = useState<Contact>(newContact)
 
@@ -24,11 +27,24 @@ const FormContact = () => {
         setContact({ ...contact, [name]: value })
     }
 
+    function resetValues() {
+        setContact(newContact)
+        if (formRef.current) formRef.current.reset()
+    }
+
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault()
+        console.log(contact)
+        await axios.post('http://localhost:8090/api/contact', contact)
+        alert('Mensagem enviada')
+        resetValues()
+    }
+
     return (
-        <form>
+        <FormContainer onSubmit={handleSubmit}>
             <FormControl>
-                <Label htmlFor="nome">Nome:</Label>
-                <Input type="text" id="nome" name="nome" onChange={handleChange} required />
+                <Label htmlFor="name">Nome:</Label>
+                <Input type="text" id="name" name="name" onChange={handleChange} required />
             </FormControl>
 
             <FormControl>
@@ -37,12 +53,12 @@ const FormContact = () => {
             </FormControl>
 
             <FormControl>
-                <Label htmlFor="mensagem">Mensagem:</Label>
-                <TextArea id="mensagem" name="mensagem" rows={10} required onChange={handleTextChange} />
+                <Label htmlFor="message">Mensagem:</Label>
+                <TextArea id="message" name="message" rows={10} required onChange={handleTextChange} />
             </FormControl>
 
             <ButtonSubmit type="submit">Enviar</ButtonSubmit>
-        </form>
+        </FormContainer>
     )
 }
 
