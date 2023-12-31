@@ -10,9 +10,6 @@ const AddChar = () => {
             <Wrapper>
                 <FormChar />
             </Wrapper>
-            <Wrapper>
-                <PostPreview />
-            </Wrapper>
         </NewCharContainer>
     )
 }
