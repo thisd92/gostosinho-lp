@@ -2,7 +2,6 @@ import { useRef, useState } from "react"
 import { Input, Label, TextArea } from "."
 import { ButtonSubmit } from "../buttons/Buttons"
 import { Contact } from "./type"
-import { FormContainer, FormControl } from "./style"
 import axios from "axios"
 
 const FormContact = () => {
@@ -41,24 +40,24 @@ const FormContact = () => {
     }
 
     return (
-        <FormContainer onSubmit={handleSubmit}>
-            <FormControl>
+        <form onSubmit={handleSubmit}>
+            <div>
                 <Label htmlFor="name">Nome:</Label>
                 <Input type="text" id="name" name="name" onChange={handleChange} required />
-            </FormControl>
+            </div>
 
-            <FormControl>
+            <div>
                 <Label htmlFor="email">Email:</Label>
                 <Input type="email" id="email" name="email" onChange={handleChange} required />
-            </FormControl>
+            </div>
 
-            <FormControl>
+            <div>
                 <Label htmlFor="message">Mensagem:</Label>
                 <TextArea id="message" name="message" rows={10} required onChange={handleTextChange} />
-            </FormControl>
+            </div>
 
             <ButtonSubmit type="submit">Enviar</ButtonSubmit>
-        </FormContainer>
+        </form>
     )
 }
 

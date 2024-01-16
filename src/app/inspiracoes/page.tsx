@@ -31,11 +31,11 @@ const Inspiracoes = () => {
     }, [])
 
     return (
-        <Wrapper id="personagens">
-            <Title className={roboto.className}>Conheça nossas inspirações!</Title>
+        <section id="personagens">
+            <h2 className={roboto.className}>Conheça nossas inspirações!</h2>
             <p>Cada hambúrguer do nosso cardápio é inspirado em um personagem. Veja quem são eles:</p>
             {chars.length > 0 && <Personalidade characters={chars} />}
-        </Wrapper>
+        </section>
     )
 }
 

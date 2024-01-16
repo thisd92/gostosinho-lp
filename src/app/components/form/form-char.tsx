@@ -57,24 +57,24 @@ const FormChar = () => {
     }
 
     return (
-        <FormContainer onSubmit={handleSubmit} encType="multipart/form-data">
-            <FormControl>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <div>
                 <Label htmlFor="name">Nome</Label>
                 <Input type="text" id="name" name="name" onChange={handleChange} value={char.name} required></Input>
-            </FormControl>
+            </div>
 
-            <FormControl>
+            <div>
                 <Label htmlFor="description">Descrição</Label>
                 <TextArea rows={20} id="description" name="description" onChange={handleTextChange} value={char.description} required></TextArea>
-            </FormControl>
+            </div>
 
-            <FormControl>
+            <div>
                 <Label htmlFor="file">Imagem</Label>
                 <input type="file" id="file" name="file" onChange={handleFileChange} accept="image/*" />
-            </FormControl>
+            </div>
 
             <ButtonSubmit type='submit'>Adicionar Personalidade</ButtonSubmit>
-        </FormContainer >
+        </form >
     )
 }
 

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { PreviewContainer, PreviewContent, TextsContainer } from "./style";
 import { PostModel } from '@/app/blog/type';
 
 interface PostPreviewProps {
@@ -8,21 +7,21 @@ interface PostPreviewProps {
 
 export default function PostPreview({ post }: PostPreviewProps) {
     return (
-        <PreviewContainer>
+        <div>
             Preview
-            <PreviewContent>
+            <div>
                 {post.img && typeof post.img === 'string' ? (
                     <Image width={300} height={300} src={post.img} alt="Preview" />
                 ) : (
                     post.img instanceof File && <Image width={300} height={300} src={URL.createObjectURL(post.img)} alt="Preview" />
                 )}
-                <TextsContainer>
+                <div>
                     <h3>{post.title}</h3>
                     <p>{post.content}</p>
-                </TextsContainer>
+                </div>
 
-            </PreviewContent>
+            </div>
 
-        </PreviewContainer>
+        </div>
     )
 }

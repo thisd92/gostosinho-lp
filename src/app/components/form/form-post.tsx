@@ -3,7 +3,6 @@ import React, { useRef } from "react"
 import { Input, Label, TextArea } from "."
 import { ButtonSubmit } from "../buttons/Buttons"
 import { PostModel } from "@/app/blog/type"
-import { FormContainer, FormControl } from "./style"
 
 interface FromPostProps {
     setPost: React.Dispatch<React.SetStateAction<PostModel>>,
@@ -61,24 +60,24 @@ const FormPost: React.FC<FromPostProps> = ({ setPost, post }) => {
     }
 
     return (
-        <FormContainer onSubmit={handleSubmit} encType="multipart/form-data">
-            <FormControl>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <div>
                 <Label htmlFor="title">Título</Label>
                 <Input type="text" id="title" name="title" onChange={handleChange} value={post.title} required></Input>
-            </FormControl>
+            </div>
 
-            <FormControl>
+            <div>
                 <Label htmlFor="content">Conteúdo</Label>
                 <TextArea rows={20} id="content" name="content" onChange={handleTextChange} value={post.content} required></TextArea>
-            </FormControl>
+            </div>
 
-            <FormControl>
+            <div>
                 <Label htmlFor="file">Imagem</Label>
                 <input type="file" id="file" name="file" onChange={handleFileChange} accept="image/*" />
-            </FormControl>
+            </div>
 
             <ButtonSubmit type='submit'>Adicionar Postagem</ButtonSubmit>
-        </FormContainer >
+        </form >
     )
 }
 

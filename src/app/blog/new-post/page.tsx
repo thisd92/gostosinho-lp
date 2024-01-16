@@ -15,14 +15,14 @@ const AddPost = () => {
     const [post, setPost] = useState<PostModel>(newPost)
 
     return (
-        <NewPostContainer>
-            <Wrapper>
+        <section>
+            <div>
                 <FormPost setPost={setPost} post={post} />
-            </Wrapper>
-            <Wrapper>
+            </div>
+            <div>
                 <PostPreview post={post} />
-            </Wrapper>
-        </NewPostContainer>
+            </div>
+        </section>
     )
 }
 
